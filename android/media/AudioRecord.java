@@ -214,7 +214,7 @@ public class AudioRecord {
             throw new IllegalArgumentException("Invalid audio source.");
         }
         this.mRecordSource = audioSource;
-        if (sampleRateInHz < 4000 || sampleRateInHz > 192000) {
+        if (sampleRateInHz < 4000 || sampleRateInHz > 48000) {
             throw new IllegalArgumentException(sampleRateInHz + "Hz is not a supported sample rate.");
         }
         this.mSampleRate = sampleRateInHz;
