@@ -1899,6 +1899,7 @@ public class MediaRouter {
         WifiDisplay[] displays;
         WifiDisplay activeDisplay;
         int i;
+        RouteInfo route;
         if (status.getFeatureState() == 3) {
             displays = status.getDisplays();
             activeDisplay = status.getActiveDisplay();
@@ -1916,7 +1917,6 @@ public class MediaRouter {
         }
         String activeDisplayAddress = activeDisplay != null ? activeDisplay.getDeviceAddress() : null;
         for (i = 0; i < displays.length; i += ROUTE_TYPE_LIVE_AUDIO) {
-            RouteInfo route;
             WifiDisplay d = displays[i];
             if (shouldShowWifiDisplay(d, activeDisplay)) {
                 route = findWifiDisplayRoute(d);

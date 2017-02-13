@@ -63,6 +63,7 @@ public class AudioFormat {
     public static final int ENCODING_AC3 = 5;
     public static final int ENCODING_DEFAULT = 1;
     public static final int ENCODING_E_AC3 = 6;
+    public static final int ENCODING_IEC61937 = 10;
     public static final int ENCODING_INVALID = 0;
     public static final int ENCODING_PCM_16BIT = 2;
     public static final int ENCODING_PCM_8BIT = 3;
@@ -115,6 +116,7 @@ public class AudioFormat {
                 case AudioFormat.ENCODING_PCM_FLOAT /*4*/:
                 case AudioFormat.ENCODING_AC3 /*5*/:
                 case AudioFormat.ENCODING_E_AC3 /*6*/:
+                case AudioFormat.ENCODING_IEC61937 /*10*/:
                     this.mEncoding = encoding;
                     break;
                 default:
@@ -174,6 +176,7 @@ public class AudioFormat {
         switch (audioFormat) {
             case ENCODING_DEFAULT /*1*/:
             case ENCODING_PCM_16BIT /*2*/:
+            case ENCODING_IEC61937 /*10*/:
                 return ENCODING_PCM_16BIT;
             case ENCODING_PCM_8BIT /*3*/:
                 return ENCODING_DEFAULT;
@@ -191,6 +194,7 @@ public class AudioFormat {
             case ENCODING_PCM_FLOAT /*4*/:
             case ENCODING_AC3 /*5*/:
             case ENCODING_E_AC3 /*6*/:
+            case ENCODING_IEC61937 /*10*/:
                 return true;
             default:
                 return false;
@@ -206,6 +210,7 @@ public class AudioFormat {
                 return true;
             case ENCODING_AC3 /*5*/:
             case ENCODING_E_AC3 /*6*/:
+            case ENCODING_IEC61937 /*10*/:
                 return false;
             default:
                 throw new IllegalArgumentException("Bad audio format " + audioFormat);

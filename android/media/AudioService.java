@@ -479,6 +479,7 @@ public class AudioService extends Stub {
         }
 
         private boolean onLoadSoundEffects() {
+            int attempts;
             synchronized (AudioService.this.mSoundEffectsLock) {
                 if (!AudioService.this.mSystemReady) {
                     Log.m8w(AudioService.TAG, "onLoadSoundEffects() called before boot complete");
@@ -486,7 +487,6 @@ public class AudioService extends Stub {
                 } else if (AudioService.this.mSoundPool != null) {
                     return AudioService.PREVENT_VOLUME_ADJUSTMENT_IF_SILENT;
                 } else {
-                    int attempts;
                     AudioService.this.loadTouchSoundAssets();
                     AudioService.this.mSoundPool = new Builder().setMaxStreams(AudioService.SCO_STATE_DEACTIVATE_EXT_REQ).setAudioAttributes(new AudioAttributes.Builder().setUsage(AudioService.MSG_SET_FORCE_BT_A2DP_USE).setContentType(AudioService.SCO_STATE_DEACTIVATE_EXT_REQ).build()).build();
                     AudioService.this.mSoundPoolCallBack = null;
